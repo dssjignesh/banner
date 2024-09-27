@@ -1,12 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dss\Banner\Model\Grid;
 
 use Dss\Banner\Model\ResourceModel\Banner\CollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Ui\DataProvider\AbstractDataProvider;
 
-class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
+class DataProvider extends AbstractDataProvider
 {
     /**
      * @var $loadedData
@@ -32,7 +34,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $collectionFactory,
+        protected CollectionFactory $collectionFactory,
         protected StoreManagerInterface $storeManager,
         array $meta = [],
         array $data = []

@@ -11,7 +11,6 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Form extends Action
 {
-    
     /**
      * __construct
      *
@@ -25,7 +24,7 @@ class Form extends Action
     ) {
         parent::__construct($context);
     }
-
+    
     /**
      * Execute
      *

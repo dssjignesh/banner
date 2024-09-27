@@ -10,7 +10,6 @@ use Magento\Framework\View\Element\Template\Context;
 
 class Index extends Template
 {
-    
     /**
      * __construct
      *
@@ -36,7 +35,7 @@ class Index extends Template
     {
         return $this->getChildHtml('pager');
     }
-
+    
     /**
      * GetBannerCollection
      *

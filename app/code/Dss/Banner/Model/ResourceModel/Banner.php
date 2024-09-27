@@ -9,6 +9,11 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 class Banner extends AbstractDb
 {
     /**
+     * @var string
+     */
+    protected $_idFieldName = 'id';
+    
+    /**
      * _construct
      *
      * @return void
