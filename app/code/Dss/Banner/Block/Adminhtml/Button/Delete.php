@@ -13,7 +13,6 @@ class Delete extends Generic implements ButtonProviderInterface
     /**
      * __construct
      *
-     *  Context context
      * @param Context $context
      *
      */

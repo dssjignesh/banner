@@ -20,7 +20,7 @@ class Delete extends Action
      *
      */
     public function __construct(
-        protected Context $context,
+        Context $context,
         protected PageFactory $resultPageFactory,
         protected BannerFactory $bannerFactory
     ) {

@@ -12,6 +12,7 @@ class Upload extends \Magento\Backend\App\Action
 {
     /**
      * Upload constructor.
+     *
      * @param Context $context
      * @param ImageUploader $imageUploader
      */

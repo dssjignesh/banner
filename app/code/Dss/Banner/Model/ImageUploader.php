@@ -8,6 +8,7 @@ use Exception;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Filesystem;
 use Magento\Framework\UrlInterface;
 use Magento\MediaStorage\Helper\File\Storage\Database;
 use Magento\MediaStorage\Model\File\UploaderFactory;
@@ -41,7 +42,7 @@ class ImageUploader
     /**
      * ImageUploader constructor.
      * @param Database $coreFileStorageDatabase
-     * @param \Magento\Framework\Filesystem $filesystem
+     * @param Filesystem $filesystem
      * @param UploaderFactory $uploaderFactory
      * @param StoreManagerInterface $storeManager
      * @param LoggerInterface $logger
@@ -49,7 +50,7 @@ class ImageUploader
      */
     public function __construct(
         private Database $coreFileStorageDatabase,
-        \Magento\Framework\Filesystem $filesystem,
+        private Filesystem $filesystem,
         private UploaderFactory $uploaderFactory,
         private StoreManagerInterface $storeManager,
         private LoggerInterface $logger

@@ -20,11 +20,12 @@ class Form extends Action
      *
      */
     public function __construct(
-        protected Context $context,
+        Context $context,
         protected PageFactory $resultPageFactory
     ) {
         parent::__construct($context);
     }
+
     /**
      * Execute
      *

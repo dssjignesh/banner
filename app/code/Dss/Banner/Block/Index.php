@@ -20,7 +20,7 @@ class Index extends Template
      *
      */
     public function __construct(
-        protected Context $context,
+        Context $context,
         protected Banner $customCollection,
         array $data = []
     ) {
@@ -36,6 +36,7 @@ class Index extends Template
     {
         return $this->getChildHtml('pager');
     }
+
     /**
      * GetBannerCollection
      *

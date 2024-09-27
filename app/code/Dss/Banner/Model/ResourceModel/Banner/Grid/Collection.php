@@ -49,6 +49,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
         $this->_init($model, $resourceModel);
         $this->setMainTable($mainTable);
     }
+
     // @codingStandardsIgnoreEnd
     /**
      * @var mixed aggregations
@@ -59,10 +60,12 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @return Mixed
      */
+
     public function getAggregations(): Mixed
     {
         return $this->aggregations;
     }
+
     /**
      * SetAggregations
      *
@@ -74,6 +77,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
     {
         $this->aggregations = $aggregations;
     }
+
     /**
      * GetAllIds
      *
@@ -86,6 +90,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
     {
         return $this->getConnection()->fetchCol($this->_getAllIdsSelect($limit, $offset), $this->_bindParams);
     }
+
     /**
      * GetSearchCriteria
      *
@@ -95,6 +100,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
     {
         return null;
     }
+
     /**
      * SetSearchCriteria
      *
@@ -106,6 +112,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
     {
         return $this;
     }
+
     /**
      * GetTotalCount
      *
@@ -115,6 +122,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
     {
         return $this->getSize();
     }
+
     /**
      * SetTotalCount
      *
@@ -126,6 +134,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
     {
         return $this;
     }
+    
     /**
      * SetItems
      *
