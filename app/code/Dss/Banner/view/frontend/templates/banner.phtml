@@ -1,0 +1,24 @@
+<?php /** @var \Dss\Banner\Block\Index $block */ ?>
+<?php $baneerCollection = $block->getBannerCollection();?>
+<div class="home-slider">
+    <?php foreach ($baneerCollection as $collection):
+        if ($collection->getStatus()):?>
+            <div class="slider-wrapper">
+                <div class="slider-inner">
+                    <div class="image">
+                        <img src="
+                            <?= /* @noEscape */ $block->getUrl("media/wysiwyg/banner/")?><?=
+                            $escaper->escapeHtml($collection->getImageField()) ?>" />
+                    </div>
+                    <div class="text">
+                        <h2><?= $escaper->escapeHtml($collection->getTitle()) ?></h2>
+                        <p><?= $escaper->escapeHtml($collection->getText()) ?></p>
+                        <a class="link" href="<?= $escaper->escapeHtml($collection->getButtonlink()) ?>">
+                            <?= $escaper->escapeHtml($collection->getButtontitle()) ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <?php endif;
+    endforeach; ?>
+</div>

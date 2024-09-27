@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="dss_banner">
+        <column xsi:type="int" name="id" padding="10" identity="true" nullable="false" comment="ID" />
+        <column xsi:type="varchar" name="title" length="100" nullable="false" comment="Title" />
+        <column xsi:type="varchar" name="text" length="100" nullable="false" comment="Text" />
+        <column xsi:type="varchar" name="buttontitle" length="100" nullable="false" comment="Button Title" />
+        <column xsi:type="varchar" name="buttonlink" length="100" nullable="false" comment="Button Link" />
+        <column length="255" name="image_field" nullable="false" xsi:type="varchar" />
+        <column xsi:type="int" name="status" padding="10" nullable="true" comment="Status" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table>
+</schema>
