@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Dss\Banner\Ui\Component\Listing\Column;
 
-use Magento\Framework\View\Element\UiComponentFactory;
-use Magento\Framework\View\Element\UiComponent\ContextInterface;
-use Magento\Store\Model\StoreManagerInterface;
 use Magento\Catalog\Helper\Image;
+use Magento\Framework\UrlInterface;
+use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
+use Magento\Store\Model\StoreManagerInterface;
 
 class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
 {
     /**
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
-     * Magento\Framework\UrlInterface $urlBuilder
      * @param StoreManagerInterface $storeManager
      * @param Image $imageHelper
      * @param Array $components

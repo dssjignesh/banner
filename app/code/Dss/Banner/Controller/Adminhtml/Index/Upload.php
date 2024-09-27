@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Dss\Banner\Controller\Adminhtml\Index;
 
 use Dss\Banner\Model\ImageUploader;
-use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\Controller\ResultFactory;
 
 class Upload extends \Magento\Backend\App\Action
 {
@@ -27,7 +27,7 @@ class Upload extends \Magento\Backend\App\Action
      *
      * @return mixed
      */
-    public function _isAllowed()
+    public function _isAllowed(): mixed
     {
         return $this->_authorization->isAllowed('Dss_Banner::upload');
     }
@@ -37,7 +37,7 @@ class Upload extends \Magento\Backend\App\Action
      *
      * @return mixed
      */
-    public function execute()
+    public function execute(): mixed
     {
         try {
             $result = $this->imageUploader->saveFileToTmpDir('image_field');

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dss\Banner\Model;
 
 use Dss\Banner\Model\ResourceModel\Banner as BannerResourceModel;
@@ -12,7 +14,7 @@ class Banner extends AbstractModel
      *
      * @return void
      */
-    protected function _construct()
+    protected function _construct(): void
     {
         $this->_init(BannerResourceModel::class);
     }

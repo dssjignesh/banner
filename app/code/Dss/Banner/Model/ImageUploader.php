@@ -65,10 +65,10 @@ class ImageUploader
      *
      * @param string $imageName
      *
-     * @return mixed
+     * @return string
      * @throws LocalizedException
      */
-    public function moveFileFromTmp(string $imageName)
+    public function moveFileFromTmp(string $imageName): string
     {
         $baseTmpPath = $this->getBaseTmpPath();
         $basePath = $this->getBasePath();
@@ -96,7 +96,7 @@ class ImageUploader
      *
      * @return string
      */
-    public function getBaseTmpPath()
+    public function getBaseTmpPath(): string
     {
         return $this->baseTmpPath;
     }
@@ -116,7 +116,7 @@ class ImageUploader
      *
      * @return string
      */
-    public function getBasePath()
+    public function getBasePath(): string
     {
         return $this->basePath;
     }
@@ -139,7 +139,7 @@ class ImageUploader
      *
      * @return string
      */
-    public function getFilePath($path, $imageName)
+    public function getFilePath($path, $imageName): string
     {
         return rtrim($path, '/') . '/' . ltrim($imageName, '/');
     }
@@ -154,7 +154,7 @@ class ImageUploader
      * @throws LocalizedException
      * @throws NoSuchEntityException
      */
-    public function saveFileToTmpDir($fileId)
+    public function saveFileToTmpDir($fileId): mixed
     {
         $baseTmpPath = $this->getBaseTmpPath();
         $uploader = $this->uploaderFactory->create(['fileId' => $fileId]);
@@ -193,8 +193,9 @@ class ImageUploader
      * GetAllowedExtensions
      *
      * @return string[]
+     * @return array
      */
-    public function getAllowedExtensions()
+    public function getAllowedExtensions(): array
     {
         return $this->allowedExtensions;
     }
@@ -215,9 +216,9 @@ class ImageUploader
      * @param Mixed $imageName
      * @param mixed $imagePath
      *
-     * @return void
+     * @return Mixed
      */
-    public function saveMediaImage($imageName, $imagePath)
+    public function saveMediaImage($imageName, $imagePath): Mixed
     {
         $baseTmpPath = $this->getBaseTmpPath();
         $basePath = $this->getBasePath();

@@ -11,9 +11,9 @@ class Back extends Generic implements ButtonProviderInterface
     /**
      * GetButtonData
      *
-     * @return void
+     * @return array
      */
-    public function getButtonData()
+    public function getButtonData(): array
     {
         return [
             'label' => __('Back'),
@@ -26,9 +26,9 @@ class Back extends Generic implements ButtonProviderInterface
     /**
      * GetBackUrl
      *
-     * @return void
+     * @return mixed
      */
-    public function getBackUrl()
+    public function getBackUrl(): mixed
     {
         return $this->getUrl('*/*/');
     }

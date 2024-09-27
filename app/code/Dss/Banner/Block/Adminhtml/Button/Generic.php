@@ -16,7 +16,6 @@ class Generic
      * @param Context $context
      * @param PageRepositoryInterface $pageRepository
      *
-     * @return void
      */
     public function __construct(
         protected Context $context,
@@ -30,9 +29,9 @@ class Generic
      * @param Mixed $route
      * @param Mixed $params
      *
-     * @return void
+     * @return mixed
      */
-    public function getUrl($route = '', $params = [])
+    public function getUrl($route = '', $params = []): mixed
     {
         return $this->context->getUrlBuilder()->getUrl($route, $params);
     }

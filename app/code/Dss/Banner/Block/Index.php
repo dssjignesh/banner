@@ -18,7 +18,6 @@ class Index extends Template
      * @param Banner $customCollection
      * @param array $data
      *
-     * @return void
      */
     public function __construct(
         protected Context $context,
@@ -31,18 +30,18 @@ class Index extends Template
     /**
      * GetPagerHtml
      *
-     * @return void
+     * @return mixed
      */
-    public function getPagerHtml()
+    public function getPagerHtml(): mixed
     {
         return $this->getChildHtml('pager');
     }
     /**
      * GetBannerCollection
      *
-     * @return void
+     * @return mixed
      */
-    public function getBannerCollection()
+    public function getBannerCollection(): mixed
     {
         $page = ($this->getRequest()->getParam('p')) ? $this->getRequest()->getParam('p') : 1;
         $pageSize = ($this->getRequest()->getParam('limit')) ? $this->getRequest(

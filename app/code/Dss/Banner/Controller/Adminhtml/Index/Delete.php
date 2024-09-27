@@ -18,7 +18,6 @@ class Delete extends Action
      * @param PageFactory $resultPageFactory
      * @param BannerFactory $bannerFactory
      *
-     * @return void
      */
     public function __construct(
         protected Context $context,
@@ -31,9 +30,9 @@ class Delete extends Action
     /**
      * Execute
      *
-     * @return void
+     * @return mixed
      */
-    public function execute()
+    public function execute(): mixed
     {
         $resultRedirectFactory = $this->resultRedirectFactory->create();
         try {

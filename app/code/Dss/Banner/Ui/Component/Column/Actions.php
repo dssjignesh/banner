@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Dss\Banner\Ui\Component\Column;
 
 use Magento\Framework\UrlInterface;
-use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
 class Actions extends Column
@@ -40,9 +40,9 @@ class Actions extends Column
      *
      * @param Array $dataSource
      *
-     * @return void
+     * @return array
      */
-    public function prepareDataSource(array $dataSource)
+    public function prepareDataSource(array $dataSource): array
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {

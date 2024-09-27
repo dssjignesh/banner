@@ -1,31 +1,47 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dss\Banner\Model\ResourceModel\Banner\Grid;
 
 use Dss\Banner\Model\ResourceModel\Banner\Collection as BannerCollection;
+use Magento\Framework\Data\Collection\Db\FetchStrategyInterface;
+use Magento\Framework\Data\Collection\EntityFactoryInterface;
+use Magento\Framework\Event\ManagerInterface;
+use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 use Magento\Framework\View\Element\UiComponent\DataProvider\Document as BannerModel;
+use Psr\Log\LoggerInterface;
 
 class Collection extends BannerCollection implements \Magento\Framework\Api\Search\SearchResultInterface
 {
-    /**
-     * @var mixed aggregations
-     */
-    protected $aggregations;
-
     // @codingStandardsIgnoreStart
+    /**
+     * collection constructor.
+     * 
+     * @param EntityFactoryInterface $entityFactory
+     * @param LoggerInterface $logger
+     * @param FetchStrategyInterface $fetchStrategy
+     * @param ManagerInterface $eventManager
+     * @param mixed $mainTable
+     * @param mixed $eventPrefix
+     * @param mixed $eventObject
+     * @param mixed $resourceModel
+     * @param mixed $model
+     * @param mixed $connection
+     * @param AbstractDb|null $resource
+     */
     public function __construct(
-        \Magento\Framework\Data\Collection\EntityFactoryInterface $entityFactory,
-        \Psr\Log\LoggerInterface $logger,
-        \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy,
-        \Magento\Framework\Event\ManagerInterface $eventManager,
+        protected EntityFactoryInterface $entityFactory,
+        protected LoggerInterface $logger,
+        protected FetchStrategyInterface $fetchStrategy,
+        protected ManagerInterface $eventManager,
         $mainTable,
         $eventPrefix,
         $eventObject,
         $resourceModel,
         $model = BannerModel::class,
         $connection = null,
-        \Magento\Framework\Model\ResourceModel\Db\AbstractDb $resource = null
+        AbstractDb $resource = null
     ) {
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $connection, $resource);
         $this->_eventPrefix = $eventPrefix;
@@ -34,13 +50,16 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
         $this->setMainTable($mainTable);
     }
     // @codingStandardsIgnoreEnd
-    
+    /**
+     * @var mixed aggregations
+     */
+    protected $aggregations;
     /**
      * GetAggregations
      *
-     * @return void
+     * @return Mixed
      */
-    public function getAggregations()
+    public function getAggregations(): Mixed
     {
         return $this->aggregations;
     }
@@ -51,7 +70,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @return void
      */
-    public function setAggregations($aggregations)
+    public function setAggregations($aggregations): void
     {
         $this->aggregations = $aggregations;
     }
@@ -61,16 +80,16 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      * @param Mixed $limit
      * @param mixed $offset
      *
-     * @return void
+     * @return mixed
      */
-    public function getAllIds($limit = null, $offset = null)
+    public function getAllIds($limit = null, $offset = null): mixed
     {
         return $this->getConnection()->fetchCol($this->_getAllIdsSelect($limit, $offset), $this->_bindParams);
     }
     /**
      * GetSearchCriteria
      *
-     * @return void
+     * @return null
      */
     public function getSearchCriteria()
     {
@@ -81,7 +100,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
      *
-     * @return void
+     * @return $this
      */
     public function setSearchCriteria(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria = null)
     {
@@ -90,9 +109,9 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
     /**
      * GetTotalCount
      *
-     * @return void
+     * @return mixed
      */
-    public function getTotalCount()
+    public function getTotalCount(): mixed
     {
         return $this->getSize();
     }
@@ -101,9 +120,9 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @param Mixed $totalCount
      *
-     * @return void
+     * @return static
      */
-    public function setTotalCount($totalCount)
+    public function setTotalCount($totalCount): static
     {
         return $this;
     }
@@ -112,9 +131,9 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @param Array $items
      *
-     * @return void
+     * @return static
      */
-    public function setItems(array $items = null)
+    public function setItems(array $items = null): static
     {
         return $this;
     }

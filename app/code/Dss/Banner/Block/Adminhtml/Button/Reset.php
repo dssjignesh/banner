@@ -9,9 +9,9 @@ class Reset extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Button\Generic
     /**
      * GetButtonData
      *
-     * @return void
+     * @return array
      */
-    public function getButtonData()
+    public function getButtonData(): array
     {
         return [
             'label' => __('Reset'),

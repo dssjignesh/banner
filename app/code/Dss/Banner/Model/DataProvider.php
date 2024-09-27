@@ -42,7 +42,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      *
      * @return mixed
      */
-    public function getData()
+    public function getData(): mixed
     {
         if ($this->loadedData === null) {
             $items = $this->collection->getItems();
@@ -70,9 +70,9 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      *
      * @param Mixed $path
      *
-     * @return void
+     * @return string
      */
-    public function getMediaUrl($path = '')
+    public function getMediaUrl($path = ''): string
     {
         $mediaUrl = $this->storeManager->getStore()->getBaseUrl(
             \Magento\Framework\UrlInterface::URL_TYPE_MEDIA

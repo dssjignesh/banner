@@ -16,7 +16,6 @@ class Delete extends Generic implements ButtonProviderInterface
      *  Context context
      * @param Context $context
      *
-     * @return void
      */
     public function __construct(
         protected Context $context
@@ -26,9 +25,9 @@ class Delete extends Generic implements ButtonProviderInterface
     /**
      * GetButtonData
      *
-     * @return void
+     * @return array
      */
-    public function getButtonData()
+    public function getButtonData(): array
     {
         $data = [];
         $id = $this->context->getRequest()->getParam('id');
@@ -48,9 +47,9 @@ class Delete extends Generic implements ButtonProviderInterface
     /**
      * GetDeleteUrl
      *
-     * @return void
+     * @return mixed
      */
-    public function getDeleteUrl()
+    public function getDeleteUrl(): mixed
     {
         $id = $this->context->getRequest()->getParam('id');
         return $this->getUrl('*/*/delete', ['id' => $id]);

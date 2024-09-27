@@ -17,7 +17,6 @@ class Index extends Action
      * @param Context $context
      * @param PageFactory $resultPageFactory
      *
-     * @return void
      */
     public function __construct(
         protected Context $context,
@@ -28,9 +27,9 @@ class Index extends Action
     /**
      * Execute
      *
-     * @return void
+     * @return mixed
      */
-    public function execute()
+    public function execute(): mixed
     {
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $resultPage = $this->resultPageFactory->create();

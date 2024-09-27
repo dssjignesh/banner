@@ -7,9 +7,9 @@ namespace Dss\Banner\Controller\Adminhtml\Index;
 use Dss\Banner\Model\BannerFactory;
 use Dss\Banner\Model\ImageUploader;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
-use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\App\Cache\Manager;
+use Magento\Framework\Message\ManagerInterface;
+use Magento\Framework\View\Result\PageFactory;
 
 /**
  * Class Banner Save
@@ -41,9 +41,7 @@ class Save extends \Magento\Backend\App\Action
         protected Manager $cacheManager
     ) {
         parent::__construct($context);
-        $this->messageManager = $messageManager;
     }
-
     /**
      * Execute
      *
@@ -74,7 +72,7 @@ class Save extends \Magento\Backend\App\Action
      *
      * @return mixed
      */
-    public function imageData($model, $data)
+    public function imageData($model, $data): mixed
     {
         if ($model->getId()) {
             $pageData = $this->bannerFactory->create();
