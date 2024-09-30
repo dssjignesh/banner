@@ -16,7 +16,7 @@ use Magento\Framework\View\Result\PageFactory;
  * Dss\Banner\Controller\Adminhtml\Index
  */
 class Save extends Action
-{    
+{
     /**
      * Save constructor.
      *
