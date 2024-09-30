@@ -26,7 +26,12 @@ class MassDelete extends \Magento\Backend\App\Action
     ) {
         parent::__construct($context);
     }
-
+    
+    /**
+     * Execute
+     *
+     * @return mixed
+     */
     public function execute()
     {
         $collection = $this->filter->getCollection($this->collectionFactory->create());
