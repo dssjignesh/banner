@@ -69,42 +69,42 @@
                 </item>
             </argument>
         </container>
-            <!-- Mass action -->
-            <massaction name="listing_massaction">
+        <!-- Mass action -->
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">ui_listing.ui_listing.banner_columns.ids</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+            <action name="delete">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
-                        <item name="selectProvider" xsi:type="string">ui_listing.ui_listing.banner_columns.ids</item>
-                        <item name="indexField" xsi:type="string">id</item>
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="banner/index/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete items</item>
+                            <item name="rule" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
+                        </item>
                     </item>
                 </argument>
-                <action name="delete">
-                    <argument name="data" xsi:type="array">
-                        <item name="config" xsi:type="array">
-                            <item name="type" xsi:type="string">delete</item>
-                            <item name="label" xsi:type="string" translate="true">Delete</item>
-                            <item name="url" xsi:type="url" path="banner/index/massDelete"/>
-                            <item name="confirm" xsi:type="array">
-                                <item name="title" xsi:type="string" translate="true">Delete items</item>
-                                <item name="rule" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
-                            </item>
-                        </item>
-                    </argument>
-                </action>
-            </massaction>
-            <!-- Paging -->
-            <paging name="listing_paging">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="storageConfig" xsi:type="array">
-                            <item name="provider" xsi:type="string">ui_listing.ui_listing.listing_top.bookmarks</item>
-                            <item name="namespace" xsi:type="string">current.paging</item>
-                        </item>
-                        <item name="selectProvider" xsi:type="string">ui_listing.ui_listing.banner_columns.ids</item>
-                        <item name="displayArea" xsi:type="string">bottom</item>
+            </action>
+        </massaction>
+        <!-- Paging -->
+        <paging name="listing_paging">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">ui_listing.ui_listing.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.paging</item>
                     </item>
-                </argument>
-            </paging>
-           <!-- Filters -->
+                    <item name="selectProvider" xsi:type="string">ui_listing.ui_listing.banner_columns.ids</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                </item>
+            </argument>
+        </paging>
+       <!-- Filters -->
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -139,23 +139,23 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="storageConfig" xsi:type="array">
-                <item name="provider" xsi:type="string">ui_listing.ui_listing.listing_top.bookmarks</item>
-                <item name="namespace" xsi:type="string">current</item>
+                    <item name="provider" xsi:type="string">ui_listing.ui_listing.listing_top.bookmarks</item>
+                    <item name="namespace" xsi:type="string">current</item>
                 </item>
                 <item name="childDefaults" xsi:type="array">
-                <item name="fieldAction" xsi:type="array">
-                    <item name="provider" xsi:type="string">ui_listing.ui_listing.banner_columns</item>
-                    <item name="target" xsi:type="string">startEdit</item>
-                    <item name="params" xsi:type="array">
-                        <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
-                        <item name="1" xsi:type="boolean">true</item>
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">ui_listing.ui_listing.banner_columns</item>
+                        <item name="target" xsi:type="string">startEdit</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                            <item name="1" xsi:type="boolean">true</item>
+                        </item>
                     </item>
-                </item>
-                <item name="storageConfig" xsi:type="array">
-                    <item name="provider" xsi:type="string">ui_listing.ui_listing.listing_top.bookmarks</item>
-                    <item name="root" xsi:type="string">columns.${ $.index }</item>
-                    <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
-                </item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">ui_listing.ui_listing.listing_top.bookmarks</item>
+                        <item name="root" xsi:type="string">columns.${ $.index }</item>
+                        <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
+                    </item>
                 </item>
             </item>
         </argument>
