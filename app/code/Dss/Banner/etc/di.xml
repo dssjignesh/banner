@@ -1,6 +1,36 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="DssUiExampleFilterPool"
+            type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">
+                    Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter
+                </item>
+                <item name="fulltext" xsi:type="object">
+                    Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="DssUiExampleFilterPool"
+        type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">
+                Dss\Banner\Model\ResourceModel\Banner\Collection
+            </argument>
+            <argument name="filterPool" xsi:type="object" shared="false">DssUiExampleFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="Dss\Banner\Model\ResourceModel\Banner\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dss_banner</argument>
+            <argument name="eventPrefix" xsi:type="string">dss_uiexample_banner_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">banner_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Dss\Banner\Model\ResourceModel\Banner</argument>
+        </arguments>
+    </type>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
@@ -10,11 +40,4 @@
             </argument>
         </arguments>
     </type>
-    <virtualType name="Dss\Banner\Model\ResourceModel\Banner\Grid\Collection"
-        type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
-        <arguments>
-            <argument name="mainTable" xsi:type="string">dss_banner</argument>
-            <argument name="resourceModel" xsi:type="string">Dss\Banner\Model\ResourceModel\Banner</argument>
-        </arguments>
-    </virtualType>
 </config>

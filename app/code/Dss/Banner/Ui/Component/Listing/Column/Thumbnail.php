@@ -13,6 +13,8 @@ use Magento\Store\Model\StoreManagerInterface;
 class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
 {
     /**
+     * __construct
+     *
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param StoreManagerInterface $storeManager

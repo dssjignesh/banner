@@ -24,7 +24,7 @@ class Index extends Action
     ) {
         parent::__construct($context);
     }
-
+    
     /**
      * Execute
      *

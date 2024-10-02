@@ -6,30 +6,24 @@ namespace Dss\Banner\Controller\Adminhtml\Index;
 
 use Dss\Banner\Model\BannerFactory;
 use Dss\Banner\Model\ImageUploader;
+use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Cache\Manager;
-use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\View\Result\PageFactory;
 
 /**
  * Class Banner Save
  * Dss\Banner\Controller\Adminhtml\Index
  */
-class Save extends \Magento\Backend\App\Action
+class Save extends Action
 {
-
-    /**
-     * @var ManagerInterface
-     */
-    protected $_messageManager;
-    
     /**
      * Save constructor.
+     *
      * @param Context $context
      * @param PageFactory $resultPageFactory
      * @param BannerFactory $bannerFactory
      * @param ImageUploader $imageUploaderModel
-     * @param ManagerInterface $messageManager
      * @param Manager $cacheManager
      */
     public function __construct(
@@ -37,7 +31,6 @@ class Save extends \Magento\Backend\App\Action
         protected PageFactory $resultPageFactory,
         protected BannerFactory $bannerFactory,
         protected ImageUploader $imageUploaderModel,
-        ManagerInterface $messageManager,
         protected Manager $cacheManager
     ) {
         parent::__construct($context);
@@ -60,7 +53,7 @@ class Save extends \Magento\Backend\App\Action
             $this->messageManager->addSuccessMessage(__("Data Saved Successfully."));
             $buttonData = $this->getRequest()->getParam('back');
         } catch (\Exception $e) {
-            $this->_messageManager->addErrorMessage(__($e));
+            $this->messageManager->addErrorMessage(__($e));
         }
         return $resultPageFactory->setPath('banner/index/index');
     }
@@ -102,3 +95,4 @@ class Save extends \Magento\Backend\App\Action
         return $model;
     }
 }
+

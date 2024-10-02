@@ -9,7 +9,6 @@ use Magento\Cms\Api\PageRepositoryInterface;
 
 class Generic
 {
-        
     /**
      * __construct
      *

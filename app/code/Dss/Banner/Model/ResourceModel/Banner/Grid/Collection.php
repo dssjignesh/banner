@@ -14,10 +14,9 @@ use Psr\Log\LoggerInterface;
 
 class Collection extends BannerCollection implements \Magento\Framework\Api\Search\SearchResultInterface
 {
-    // @codingStandardsIgnoreStart
     /**
      * collection constructor.
-     * 
+     *
      * @param EntityFactoryInterface $entityFactory
      * @param LoggerInterface $logger
      * @param FetchStrategyInterface $fetchStrategy
@@ -50,7 +49,6 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
         $this->setMainTable($mainTable);
     }
 
-    // @codingStandardsIgnoreEnd
     /**
      * @var mixed aggregations
      */
@@ -61,7 +59,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      * @return Mixed
      */
 
-    public function getAggregations(): Mixed
+    public function getAggregations()
     {
         return $this->aggregations;
     }
@@ -73,7 +71,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @return void
      */
-    public function setAggregations($aggregations): void
+    public function setAggregations($aggregations)
     {
         $this->aggregations = $aggregations;
     }
@@ -86,7 +84,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @return mixed
      */
-    public function getAllIds($limit = null, $offset = null): mixed
+    public function getAllIds($limit = null, $offset = null)
     {
         return $this->getConnection()->fetchCol($this->_getAllIdsSelect($limit, $offset), $this->_bindParams);
     }
@@ -118,7 +116,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @return mixed
      */
-    public function getTotalCount(): mixed
+    public function getTotalCount()
     {
         return $this->getSize();
     }
@@ -130,7 +128,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @return static
      */
-    public function setTotalCount($totalCount): static
+    public function setTotalCount($totalCount)
     {
         return $this;
     }
@@ -142,7 +140,7 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
      *
      * @return static
      */
-    public function setItems(array $items = null): static
+    public function setItems(array $items = null)
     {
         return $this;
     }
