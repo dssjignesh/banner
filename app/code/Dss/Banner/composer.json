@@ -1,5 +1,5 @@
 {
-    "name": "dss/banner",
+    "name": "dss/m2-banner",
     "description": "A Magento 2 module for Manage Banner Grid.",
     "type": "magento2-module",
     "license": "MIT",
